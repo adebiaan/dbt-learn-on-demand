@@ -1,0 +1,22 @@
+version: 2
+
+models:
+    - name: stg_payments
+      description: payment data for an order
+      columns:
+          - name: payment_id
+            description: primary key for payments
+          - name: order_id
+            description: foreign key to the stg_payments table
+            tests: 
+                - relationships:
+                    to: ref('stg_orders')
+                    field: order_id
+          - name: payment_method
+            description: the payment method used
+          - name: status
+            description: the status of the payment
+          - name: amount
+            description: the payment amount
+          - name: created_at
+            description: the date of payment
