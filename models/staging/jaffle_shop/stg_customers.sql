@@ -3,7 +3,7 @@ with customers as (
         id as customer_id,
         first_name,
         last_name
-    from jaffle_shop_customers
+    from {{ source('dbt_an_dev', 'jaffle_shop_customers') }}
 )
 
 select * from customers

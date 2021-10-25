@@ -4,7 +4,7 @@ with orders as (
         user_id as customer_id,
         order_date,
         status
-    from jaffle_shop_orders
+    from {{ source('dbt_an_dev', 'jaffle_shop_orders') }}
 )
 
 select * from orders

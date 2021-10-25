@@ -7,7 +7,7 @@ with payments as (
         -- amount is stored in cents, convert it to dollars
         amount / 100 as amount,
         created as created_at 
-    from stripe_payment
+    from {{ source('dbt_an_dev', 'stripe_payment') }}
 )
 
 select * from payments
